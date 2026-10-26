@@ -3,7 +3,6 @@ import { useState } from "react"
 function Todos() {
     const [text, setText] = useState('')
     const [todos, setTodos] = useState([])
-    const activeTodos = todos.filter((todo) => !todo.completed)
     const hasCompleted = todos.some((todo) => todo.completed)
     const itemsLeft = todos.filter((todo) => !todo.completed).length
     const allCompleted = itemsLeft === 0
@@ -109,7 +108,7 @@ function Todos() {
 
                     <footer className="grid h-10 grid-cols-3 items-center border-t border-[#e6e6e6] px-[15px] text-[15px]">
                         <span>
-                            <strong className="font-light">{activeTodos.length}</strong> item left
+                            <strong className="font-light">{itemsLeft}</strong> {itemsLeft === 1 ? 'item' : 'items'} left
                         </span>
                         <ul className="flex justify-center gap-1">
                             <li>
